@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>页面标题</title>
+    <!-- 引入Bootstrap核心样式文件（必须） -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- 引入Bootstrap默认主题样式（可选） -->
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <!-- 引入bootstraptable样式-->
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+
+    <!-- 你自己的样式或其他文件 -->
+    <link rel="stylesheet" href="example.css">
+</head>
+
+<!-- 以下代码，如果不使用JS插件则不需要 -->
+<!-- 由于Bootstrap的JS插件依赖jQuery，so 引入jQuery -->
+<script src="js/jquery-1.4.2.min.js"></script>
+<!-- 引入所有的Bootstrap的JS插件 -->
+<script src="js/bootstrap.min.js"></script>
+<!-- 你自己的脚本文件 -->
+<script src="example.js"></script>
+
+<script src="js/bootstrap-table.js"></script>
+<script src="js/bootstrap-table-zh-CN.js"></script>
+
+<script>
+    function selectUser() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            document.getElementById("test").innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("POST", "user/showUser.do", true);
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xmlhttp.send("id=3");
+    }
+
+
+</script>
+<body>
+
+<p id="test">Hello World!</p>
+<button type="button" onclick="selectUser()">onclick test</button><br/>
+
+<!--table-->
+<h1>tableDemo1</h1>
+<table data-toggle="table">
+    <thead>
+    <tr>
+        <th>Item ID</th>
+        <th>Item Name</th>
+        <th>Item Price</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>1</td>
+        <td>Item 1</td>
+        <td>$1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Item 2</td>
+        <td>$2</td>
+    </tr>
+    </tbody>
+</table>
+<!--table2-->
+<h1>tableDemo2</h1>
+<h2>tableDemo3</h2>
+
+</body>
+</html>
